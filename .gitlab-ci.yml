@@ -24,6 +24,7 @@ before_script:
 # Install composer
 - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
+- mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE" < db.sql
 
 test:app:
   script:
