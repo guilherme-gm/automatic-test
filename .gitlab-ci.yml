@@ -23,7 +23,7 @@ test:app:
 coverage:
   stage: test
   script:
-    - phpunit --configuration ./tests/phpunit.xml --coverage-html coverage/ ./tests/
+    - ./vendor/bin/phpunit --configuration ./tests/phpunit.xml --coverage-html coverage/ ./tests/
   artifacts:
     paths:
       - coverage/
