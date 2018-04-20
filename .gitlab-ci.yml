@@ -24,7 +24,11 @@ before_script:
 # Install composer
 - curl -sS https://getcomposer.org/installer | php
 - php composer.phar install
-- mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE" < db.sql
+
+connect:
+  image: mysql
+  script:
+  - mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE" < db.sql
 
 test:app:
   script:
@@ -32,6 +36,8 @@ test:app:
 
 coverage:
   stage: test
+  dependencies:
+    - connect
   script:
     - vendor/bin/phpunit --configuration tests/phpunit.xml --coverage-html coverage/ tests/
   artifacts:
