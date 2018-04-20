@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<dataset>
+    <posts id="1" title="My First Post" content="Hello buddy!" />
+    <posts id="2" title="My Second Post" content="I like it!" />
+</dataset>
