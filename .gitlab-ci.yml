@@ -1,9 +1,16 @@
 # Select image from https://hub.docker.com/r/_/php/
 image: php:7.2
 
+cache:
+  paths:
+    - vendor/
+
 before_script:
 # Install dependencies
 - bash ci/docker_install.sh > /dev/null
+# Install composer
+- curl -sS https://getcomposer.org/installer | php
+- php composer.phar install
 
 test:app:
   script:
@@ -19,7 +26,7 @@ coverage:
     # Enable Xdebug
     - docker-php-ext-enable xdebug
   script:
-    - phpunit --bootstrap ./vendor/autoload.php --configuration tests/phpunit.xml --coverage-html coverage/ tests/
+    - phpunit --configuration tests/phpunit.xml --coverage-html coverage/ tests/
   artifacts:
     paths:
       - coverage/
