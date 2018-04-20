@@ -5,6 +5,13 @@ cache:
   paths:
     - vendor/
 
+services:
+  - mysql:latest
+
+variables:
+  MYSQL_DATABASE: citest
+  MYSQL_ROOT_PASSWORD: 1234
+
 before_script:
 # Install dependencies
 - bash ci/docker_install.sh > /dev/null
