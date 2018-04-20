@@ -26,7 +26,7 @@ coverage:
     # Enable Xdebug
     - docker-php-ext-enable xdebug
   script:
-    - phpunit --bootstrap ./vendor/autoload.php --configuration tests/phpunit.xml --coverage-html coverage/ tests/
+    - phpunit --configuration ./tests/phpunit.xml --coverage-html coverage/ ./tests/
   artifacts:
     paths:
       - coverage/
