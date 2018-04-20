@@ -8,3 +8,31 @@ before_script:
 test:app:
   script:
   - phpunit --configuration tests/phpunit.xml
+
+coverage:
+  stage: test
+  before_script:
+    # Install dependencies
+    - bash ci/docker_install.sh > /dev/null
+    # Install Xdebug
+    - pecl install xdebug
+    # Enable Xdebug
+    - docker-php-ext-enable xdebug
+  script:
+    - phpunit --configuration tests/phpunit.xml --coverage-html coverage/
+  artifacts:
+    paths:
+      - coverage/
+
+
+pages:
+  stage: deploy
+  dependencies:
+    - coverage
+  script:
+    - mv coverage/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+      - master
