@@ -1,0 +1,17 @@
+{
+    "name": "guilh/ci-test",
+    "description": "My CI test",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^7.1"
+    },
+    "authors": [
+        {
+            "name": "Guilherme G. Menaldo",
+            "email": "guilherme.menaldo@outlook.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "^4.1"
+    }
+}
