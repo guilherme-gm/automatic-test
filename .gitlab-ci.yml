@@ -6,7 +6,7 @@ cache:
     - vendor/
 
 services:
-  - mysql:latest
+  - mysql:5.7
 
 variables:
   MYSQL_DATABASE: citest
