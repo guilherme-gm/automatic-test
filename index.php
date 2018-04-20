@@ -11,6 +11,6 @@ if (isset($_GET['action'])) {
     $action = 'index';
 }
 
-include 'src/controllers/'.$controllerClass.'.php';
+require_once 'src/controllers/'.$controllerClass.'.php';
 $controller = new $controllerClass();
 $controller->$action();

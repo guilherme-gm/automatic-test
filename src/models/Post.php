@@ -1,6 +1,6 @@
 <?php
 
-include 'src/database.php';
+require_once 'src/database.php';
 
 class Post
 {

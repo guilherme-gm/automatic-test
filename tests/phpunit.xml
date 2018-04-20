@@ -6,4 +6,13 @@
         <var name="DB_PASSWD" value="" />
         <var name="DB_DBNAME" value="citest" />
     </php>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src/</directory>
+            <file>../index.php</file>
+            <exclude>
+                <directory suffix=".php">../src/view</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

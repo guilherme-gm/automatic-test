@@ -31,7 +31,7 @@ class PostModelTest extends TestCase
 
     public function testGetAll()
     {
-        include 'src/models/Post.php';
+        require_once 'src/models/Post.php';
 
         $posts = Post::getAll();
 

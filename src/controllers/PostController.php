@@ -1,6 +1,6 @@
 <?php
 
-include 'src/models/Post.php';
+require_once 'src/models/Post.php';
 
 class PostController
 {
